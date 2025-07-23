@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "283456068166",
+    "project_id": "financeplannerapp2",
+    "storage_bucket": "financeplannerapp2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283456068166:android:9ec6691e03b2b347bc8847",
+        "android_client_info": {
+          "package_name": "com.example.asdaw"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzFG8Zsd5deOP5I8L7gK9TgMBj7itfsZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283456068166:android:ed3db88e820e066abc8847",
+        "android_client_info": {
+          "package_name": "com.example.finance_planner_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzFG8Zsd5deOP5I8L7gK9TgMBj7itfsZ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
