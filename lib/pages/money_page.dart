@@ -21,12 +21,12 @@ class _MoneyPageState extends State<MoneyPage> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Thu Chi'),
+          title: const Text('Income/Expense'),
           bottom: const TabBar(
             tabs: [
-              Tab(text: 'Theo Tuần'),
-              Tab(text: 'Theo Tháng'),
-              Tab(text: 'Theo Năm'),
+              Tab(text: 'Weekly'),
+              Tab(text: 'Monthly'),
+              Tab(text: 'Yearly'),
             ],
           ),
         ),
@@ -36,9 +36,9 @@ class _MoneyPageState extends State<MoneyPage> {
               height: 280,
               child: TabBarView(
                 children: [
-                  TheoTuanTab(),
-                  TheoThangTab(),
-                  TheoNamTab(),
+                  WeeklyTab(),
+                  MonthlyTab(),
+                  YearlyTab(),
                 ],
               ),
             ),
@@ -46,7 +46,7 @@ class _MoneyPageState extends State<MoneyPage> {
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               child: Row(
                 children: [
-                  Text("Giao dịch gần đây",
+                  Text("Recent Transactions",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                 ],
@@ -60,7 +60,7 @@ class _MoneyPageState extends State<MoneyPage> {
                     return const Center(child: CircularProgressIndicator());
                   }
                   if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return const Center(child: Text("Chưa có giao dịch nào."));
+                    return const Center(child: Text("No transactions yet."));
                   }
 
                   final transactions = snapshot.data!;
@@ -106,18 +106,18 @@ class _MoneyPageState extends State<MoneyPage> {
                             final confirm = await showDialog<bool>(
                               context: context,
                               builder: (ctx) => AlertDialog(
-                                title: const Text("Xác nhận xóa"),
+                                title: const Text("Confirm Deletion"),
                                 content: const Text(
-                                    "Bạn có chắc chắn muốn xóa giao dịch này?"),
+                                    "Are you sure you want to delete this transaction?"),
                                 actions: [
                                   TextButton(
                                       onPressed: () =>
                                           Navigator.pop(ctx, false),
-                                      child: const Text("Hủy")),
+                                      child: const Text("Cancel")),
                                   ElevatedButton(
                                       onPressed: () =>
                                           Navigator.pop(ctx, true),
-                                      child: const Text("Xóa")),
+                                      child: const Text("Delete")),
                                 ],
                               ),
                             );
@@ -149,8 +149,8 @@ class _MoneyPageState extends State<MoneyPage> {
   }
 }
 
-class TheoTuanTab extends StatelessWidget {
-  const TheoTuanTab({super.key});
+class WeeklyTab extends StatelessWidget {
+  const WeeklyTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -166,8 +166,8 @@ class TheoTuanTab extends StatelessWidget {
   }
 }
 
-class TheoThangTab extends StatelessWidget {
-  const TheoThangTab({super.key});
+class MonthlyTab extends StatelessWidget {
+  const MonthlyTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -183,8 +183,8 @@ class TheoThangTab extends StatelessWidget {
   }
 }
 
-class TheoNamTab extends StatelessWidget {
-  const TheoNamTab({super.key});
+class YearlyTab extends StatelessWidget {
+  const YearlyTab({super.key});
 
   @override
   Widget build(BuildContext context) {
